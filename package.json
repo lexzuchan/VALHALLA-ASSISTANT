@@ -20,7 +20,7 @@
     "format": "prettier --write ."
   },
   "devDependencies": {
-    "electron": "43.8.1",
+    "electron": "44.9.0",
     "electron-builder": "26.15.3",
     "prettier": "3.9.10"
   },
