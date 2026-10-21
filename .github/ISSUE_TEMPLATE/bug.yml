@@ -1,0 +1,23 @@
+name: Bug report
+description: Report a reproducible application problem
+body:
+  - type: markdown
+    attributes:
+      value: Do not include API keys, private project files, or sensitive screenshots.
+  - type: textarea
+    id: issue
+    attributes:
+      label: What happened?
+      description: Include expected behavior and steps to reproduce.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: App and Windows version
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Error text or additional context
