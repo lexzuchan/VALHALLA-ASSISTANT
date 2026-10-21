@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self' blob:; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <title>V.A.L.H.A.L.L.A</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="titlebar">
+      <div class="brand">
+        <span data-icon="logo"></span><strong>V.A.L.H.A.L.L.A</strong
+        ><small>ENGINEERING INTELLIGENCE</small>
+      </div>
+      <div class="title-drag"></div>
+      <span class="version">LOCAL / 0.2</span
+      ><button data-window="minimize" data-icon="minus" aria-label="Minimize"></button
+      ><button data-window="maximize" data-icon="square" aria-label="Maximize"></button
+      ><button data-window="close" data-icon="close" aria-label="Close"></button>
+    </header>
+    <div class="app-layout">
+      <aside class="sidebar">
+        <div class="workspace-label">PERSONAL LABORATORY</div>
+        <button class="nav-item active" data-page="home">
+          <span data-icon="grid"></span><span>Command center</span><kbd>01</kbd></button
+        ><button class="nav-item" data-page="chat">
+          <span data-icon="chat"></span><span>AI workspace</span><kbd>02</kbd></button
+        ><button class="nav-item" data-page="tools">
+          <span data-icon="calculator"></span><span>Engineering tools</span><kbd>03</kbd></button
+        ><button class="nav-item" data-page="simulation">
+          <span data-icon="orbit"></span><span>Simulation lab</span><kbd>04</kbd></button
+        ><button class="nav-item" data-page="notes">
+          <span data-icon="notes"></span><span>Project notebook</span><kbd>05</kbd>
+        </button>
+        <div class="rail-line"></div>
+        <div class="workspace-label">CURRENT WORKSPACE</div>
+        <div class="project-tag">
+          <i></i><span id="workspace-title">Untitled engineering workspace</span>
+        </div>
+        <div class="sidebar-bottom">
+          <div class="connection-card">
+            <span class="status-dot" id="connection-dot"></span>
+            <div>
+              <strong id="connection-label">Local tools ready</strong
+              ><small id="connection-detail">No API key needed</small>
+            </div>
+          </div>
+          <button class="nav-item" data-page="settings">
+            <span data-icon="settings"></span><span>Settings & connection</span>
+          </button>
+          <div class="sidebar-foot">THINK CLEARLY. BUILD RESPONSIBLY.</div>
+        </div>
+      </aside>
+      <div class="content">
+        <div class="page-top">
+          <div>
+            <span class="overline" id="page-kicker">SYSTEM OVERVIEW</span>
+            <h2 id="page-title">Command center</h2>
+          </div>
+          <div class="top-right">
+            <span id="clock"></span><span class="local-tag"><i></i> DESKTOP LAB</span>
+          </div>
+        </div>
+        <main id="home-page" class="page">
+          <section class="hero">
+            <div class="hero-text">
+              <div class="eyebrow"><span></span> YOUR IDEAS. GIVEN FORM.</div>
+              <h1>From <em>what if</em><br />to <strong>what’s next.</strong></h1>
+              <p>
+                A thinking partner for the engineer in you.<br />Explore the physics. Test the
+                assumptions. Build the idea.
+              </p>
+              <button
+                class="primary"
+                data-prompt="Help me turn an engineering idea into a plan. Ask me about my goal, constraints, and what I already know."
+              >
+                Start a conversation <span data-icon="arrow"></span></button
+              ><button class="text-button" data-page="simulation">
+                Enter simulation lab <span data-icon="right"></span>
+              </button>
+            </div>
+            <div class="core-art" aria-hidden="true">
+              <div class="core-ring ring-one"></div>
+              <div class="core-ring ring-two"></div>
+              <div class="core-ring ring-three"></div>
+              <div class="core-logo" data-icon="logo"></div>
+              <span class="core-caption">V / COGNITIVE INTERFACE</span
+              ><span class="core-coordinate">ANALYZE · ITERATE · CREATE</span
+              ><b class="core-tick tick-one"></b><b class="core-tick tick-two"></b>
+            </div>
+          </section>
+          <div class="section-heading">
+            <h3>Choose your next move</h3>
+            <span>FOUR WAYS TO BEGIN</span>
+          </div>
+          <div class="capability-grid">
+            <button class="capability" data-page="tools">
+              <span class="cap-icon" data-icon="calculator"></span><small>01 / CALCULATE</small>
+              <h3>Make the numbers work.</h3>
+              <p>Eight physics models, explicit units,<br />and traceable equations.</p>
+              <span class="card-arrow" data-icon="arrow"></span></button
+            ><button class="capability" data-page="simulation">
+              <span class="cap-icon" data-icon="orbit"></span><small>02 / EXPERIMENT</small>
+              <h3>See the physics unfold.</h3>
+              <p>Change a parameter. Follow the motion.<br />Find the relationship.</p>
+              <span class="card-arrow" data-icon="arrow"></span></button
+            ><button
+              class="capability"
+              data-prompt="Help me analyze a technical problem. Ask me for the known values, constraints, and any short text reference you need."
+            >
+              <span class="cap-icon" data-icon="scan"></span><small>03 / UNDERSTAND</small>
+              <h3>A second perspective.</h3>
+              <p>Bring a question or short text<br />into a local AI conversation.</p>
+              <span class="card-arrow" data-icon="arrow"></span></button
+            ><button class="capability" data-page="notes">
+              <span class="cap-icon" data-icon="notes"></span><small>04 / DEVELOP</small>
+              <h3>Keep the idea moving.</h3>
+              <p>Capture constraints, decisions,<br />and the next experiment.</p>
+              <span class="card-arrow" data-icon="arrow"></span>
+            </button>
+          </div>
+          <div class="home-lower">
+            <div class="reference-card">
+              <div>
+                <span class="eyebrow">LOCAL MODEL / LIVE PARAMETERS</span>
+                <h3>Reference trajectory</h3>
+                <p>25 m/s · 45° · Earth gravity · no drag</p>
+                <div id="reference-results"></div>
+              </div>
+              <canvas
+                id="reference-chart"
+                aria-label="Calculated reference projectile trajectory"
+              ></canvas>
+            </div>
+            <div class="session-card">
+              <span class="eyebrow">WORKSPACE STATUS</span>
+              <h3>Ready when you are.</h3>
+              <div><span>Local calculation models</span><b>08</b></div>
+              <div><span>Interactive simulations</span><b>03</b></div>
+              <div><span>AI connection</span><b id="home-ai">NOT SET</b></div>
+              <button data-page="settings">
+                Configure assistant <span data-icon="right"></span>
+              </button>
+            </div>
+          </div>
+          <div class="acronym">
+            VOICE-ASSISTED LABORATORY FOR HEURISTICS, ANALYSIS, LEARNING, LOGIC, AND AUTOMATION
+          </div>
+        </main>
+        <main id="chat-page" class="page" hidden>
+          <div class="chat-layout">
+            <section class="chat-main">
+              <div class="chat-toolbar">
+                <span id="chat-model">LOCAL AI / NO KEY REQUIRED</span
+                ><button id="new-chat" class="small-button">New conversation</button>
+              </div>
+              <div id="messages" class="messages">
+                <div id="chat-empty" class="chat-empty">
+                  <span data-icon="logo"></span>
+                  <h3>What are we building?</h3>
+                  <p>
+                    Describe a problem, attach short text, or ask a physics question.<br />Run the
+                    local model setup in Settings first. No API key is needed.
+                  </p>
+                </div>
+              </div>
+              <div id="ai-status" class="ai-status" role="status"></div>
+              <div class="composer">
+                <div id="attachments" class="attachments"></div>
+                <textarea
+                  id="prompt"
+                  rows="3"
+                  maxlength="12000"
+                  placeholder="Describe your problem, constraints, or next big idea…"
+                  aria-label="Message the assistant"
+                ></textarea>
+                <div class="composer-options">
+                  <label><input type="checkbox" id="include-notes" /> Include project notes</label
+                  ><label id="file-consent-label" hidden
+                    ><input type="checkbox" id="file-consent" /> Include attached text in local
+                    chat</label
+                  >
+                </div>
+                <div class="composer-bottom">
+                  <div>
+                    <button
+                      id="attach"
+                      data-icon="attach"
+                      title="Attach a short local text reference"
+                      aria-label="Attach reference"
+                    ></button
+                    ><button
+                      id="microphone"
+                      data-icon="mic"
+                      title="Voice dictation unavailable in the local edition"
+                      aria-label="Record voice"
+                    ></button
+                    ><button
+                      id="speak-toggle"
+                      data-icon="speaker"
+                      title="Toggle spoken replies"
+                      aria-label="Toggle spoken replies"
+                    ></button
+                    ><small id="voice-status">ENTER TO SEND · SHIFT + ENTER FOR A NEW LINE</small>
+                  </div>
+                  <button id="send" class="primary">Send <span data-icon="arrow"></span></button
+                  ><button id="cancel" class="small-button" hidden>Cancel request</button>
+                </div>
+              </div>
+              <p class="privacy-caption">
+                Local-only edition. Messages, selected notes and text references are processed by
+                Ollama on this laptop. No API key or automatic paid fallback. Voice dictation and
+                image/PDF analysis are not included.
+              </p>
+            </section>
+            <aside class="chat-side">
+              <span class="eyebrow">ENGINEERING MODE</span>
+              <h3>Reason. Check. Refine.</h3>
+              <p>
+                Calculations can be checked using local physics tools. Tool results appear
+                separately from AI explanations.
+              </p>
+              <div class="side-note">
+                <span data-icon="calculator"></span><strong>Explicit assumptions</strong>
+                <p>
+                  Idealized models state their limits. A calculated result is not a safety
+                  certification.
+                </p>
+              </div>
+              <div class="side-note">
+                <span data-icon="scan"></span><strong>Reference aware</strong>
+                <p>
+                  Attach short text references. Files apply to the next message only; reattach for
+                  later turns. This compact model cannot inspect images or PDFs.
+                </p>
+              </div>
+              <div class="side-note">
+                <span data-icon="shield"></span><strong>You stay in control</strong>
+                <p>
+                  No cloud requests, shell execution, hardware control, or microphone recording.
+                </p>
+              </div>
+              <button class="small-button" data-page="tools">Open local tools</button>
+            </aside>
+          </div>
+        </main>
+        <main id="tools-page" class="page" hidden>
+          <div class="workbench">
+            <section class="panel">
+              <div class="panel-label">DETERMINISTIC CALCULATION</div>
+              <h3>Engineering workbench</h3>
+              <label class="field">Physics model<select id="calc-kind"></select></label>
+              <form id="calc-form">
+                <div id="calc-fields" class="input-grid"></div>
+                <button class="primary">Calculate <span data-icon="arrow"></span></button>
+              </form>
+              <div id="calc-error" class="error" role="alert"></div>
+            </section>
+            <section class="panel result-panel">
+              <div class="panel-label">MODEL OUTPUT</div>
+              <h3 id="calc-title">Results</h3>
+              <div id="calc-results"></div>
+              <button id="calc-to-chat" class="small-button">Discuss these results with AI</button>
+            </section>
+          </div>
+          <section class="panel converter">
+            <div>
+              <div class="panel-label">DIMENSION CHECKED</div>
+              <h3>Unit converter</h3>
+            </div>
+            <form id="unit-form">
+              <input
+                id="unit-value"
+                type="number"
+                step="any"
+                value="1"
+                aria-label="Value to convert"
+              /><select id="unit-from" aria-label="Source unit"></select
+              ><span data-icon="right"></span
+              ><select id="unit-to" aria-label="Target unit"></select
+              ><button class="small-button">Convert</button>
+            </form>
+            <output id="unit-result"></output>
+          </section>
+        </main>
+        <main id="simulation-page" class="page" hidden>
+          <div class="sim-layout">
+            <section class="panel sim-controls">
+              <div class="panel-label">INTERACTIVE / LOCAL</div>
+              <h3>Simulation controls</h3>
+              <label class="field"
+                >Model<select id="sim-kind">
+                  <option value="projectile">Projectile motion</option>
+                  <option value="spring">Mass–spring oscillator</option>
+                  <option value="rc">RC charging circuit</option>
+                </select></label
+              >
+              <form id="sim-form">
+                <div id="sim-fields"></div>
+                <button class="primary">Update model <span data-icon="arrow"></span></button>
+              </form>
+              <div id="sim-error" class="error" role="alert"></div>
+              <div class="simulation-actions">
+                <button id="sim-play" class="small-button">Play motion</button
+                ><button id="sim-reset" class="small-button">Reset</button>
+              </div>
+              <button id="sim-export" class="text-button">
+                Export data as CSV <span data-icon="download"></span>
+              </button>
+            </section>
+            <section class="panel sim-view">
+              <div class="sim-view-top">
+                <div>
+                  <div class="panel-label">MODEL VIEW</div>
+                  <h3 id="sim-title">Projectile motion</h3>
+                </div>
+                <span class="local-tag">241 SAMPLES</span>
+              </div>
+              <canvas id="sim-chart" aria-label="Physics simulation plot"></canvas>
+              <div class="timeline">
+                <input
+                  id="sim-progress"
+                  type="range"
+                  min="0"
+                  max="240"
+                  value="0"
+                  aria-label="Simulation time"
+                /><output id="sim-time">t = 0 s</output>
+              </div>
+              <div id="sim-results"></div>
+            </section>
+          </div>
+        </main>
+        <main id="notes-page" class="page" hidden>
+          <div class="notes-layout">
+            <section class="panel">
+              <div class="panel-label">YOUR PROJECT / STORED LOCALLY</div>
+              <h3>Engineering notebook</h3>
+              <label class="field"
+                >Project title<input
+                  id="project-title"
+                  maxlength="120"
+                  placeholder="Name your project" /></label
+              ><label class="field"
+                >Notes & constraints<textarea
+                  id="project-notes"
+                  maxlength="100000"
+                  placeholder="Goal:\n\nKnown values and units:\n\nConstraints:\n\nAssumptions to test:\n\nNext experiment:"
+                ></textarea>
+              </label>
+              <div class="button-row">
+                <button id="save-notes" class="primary">Save notebook</button
+                ><button id="export-project" class="small-button">
+                  Export project <span data-icon="download"></span>
+                </button>
+              </div>
+              <p id="save-status" class="muted" role="status"></p>
+            </section>
+            <aside class="panel note-guide">
+              <div class="panel-label">GOOD ENGINEERING STARTS HERE</div>
+              <h3>Leave a trail of reasoning.</h3>
+              <p>Record what you know, what you assumed, and how you plan to check it.</p>
+              <ol>
+                <li>Define the problem and success criteria.</li>
+                <li>Write quantities with their units.</li>
+                <li>State boundary conditions and constraints.</li>
+                <li>Separate measurements from estimates.</li>
+                <li>Log decisions and next tests.</li>
+              </ol>
+              <p>
+                Notes stay local unless you select <strong>Include project notes</strong> when
+                sending a message.
+              </p>
+            </aside>
+          </div>
+        </main>
+        <main id="settings-page" class="page" hidden>
+          <div class="settings-layout">
+            <section class="panel">
+              <div class="panel-label">ON YOUR LAPTOP / NO API KEY</div>
+              <h3>Your local engineering assistant</h3>
+              <p class="muted">
+                Install Ollama once, then run Setup-Local-AI.cmd. It downloads a compact Qwen3 4B
+                model and creates the VALHALLA assistant. No model subscription or per-message API
+                fee.
+              </p>
+              <ol class="muted">
+                <li>Install Ollama from ollama.com/download/windows and open it.</li>
+                <li>Click Show setup files below. Run Setup-Local-AI.cmd.</li>
+                <li>After the download completes, click Check local AI.</li>
+              </ol>
+              <form id="settings-form">
+                <label class="field"
+                  >Local model<select id="model">
+                    <option value="valhalla-local">VALHALLA Local — recommended</option>
+                    <option value="qwen3:4b">Qwen3 4B — base model</option>
+                    <option value="qwen3:1.7b">Qwen3 1.7B — lighter option</option>
+                  </select></label
+                >
+                <label class="check-label"
+                  ><input id="speak" type="checkbox" /> Read replies aloud using system
+                  speech</label
+                >
+                <div class="button-row">
+                  <button class="primary">Save settings</button
+                  ><button type="button" class="small-button" id="check-local">
+                    Check local AI</button
+                  ><button type="button" class="small-button" id="open-setup">
+                    Show setup files
+                  </button>
+                </div>
+              </form>
+              <p id="local-status" class="muted" role="status">Not checked yet.</p>
+              <div id="settings-status" class="muted" role="status"></div>
+            </section>
+            <aside class="panel">
+              <div class="panel-label">MODEST BY DESIGN</div>
+              <h3>Private. Local. Practical.</h3>
+              <div class="settings-note">
+                <strong>A compact model</strong>
+                <p>
+                  The recommended 4B model is about a 2.5 GB download. Actual memory and speed
+                  depend on your laptop. Setup-Lite-AI.cmd creates the same assistant with a smaller
+                  1.7B base if needed.
+                </p>
+              </div>
+              <div class="settings-note">
+                <strong>Short, focused sessions</strong>
+                <p>
+                  A 4,096-token context and limited answer length keep resource use modest. Only a
+                  short recent conversation window is included. The model unloads after one idle
+                  minute.
+                </p>
+              </div>
+              <div class="settings-note">
+                <strong>No paid fallback</strong>
+                <p>
+                  This edition contacts only the Ollama service on 127.0.0.1:11434. Cloud model
+                  names and remote-model manifests are rejected. No credentials are used.
+                </p>
+              </div>
+              <div class="settings-note">
+                <strong>Clear limits</strong>
+                <p>
+                  This text model cannot inspect images or PDFs. Paste extracted text instead. Voice
+                  dictation is disabled. Calculator results still need real-world engineering
+                  judgment.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </main>
+        <footer>
+          <span><i></i> <span id="footer-status">LOCAL TOOLS AVAILABLE</span></span
+          ><span>HUMAN CURIOSITY. MACHINE ASSISTANCE.</span><span>V.A.L.H.A.L.L.A / 0.2.0</span>
+        </footer>
+      </div>
+    </div>
+    <div id="toast" role="status" hidden></div>
+    <script src="physics.js"></script>
+    <script src="icons.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

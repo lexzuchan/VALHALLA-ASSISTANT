@@ -1,0 +1,74 @@
+{
+  "name": "valhalla-assistant",
+  "version": "0.2.0",
+  "description": "VALHALLA local engineering assistant \u2014 no API key",
+  "productName": "VALHALLA",
+  "main": "src/main.cjs",
+  "author": "VALHALLA contributors",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "start": "electron .",
+    "icons": "node scripts/icon.cjs",
+    "check": "node scripts/check.cjs && node --test tests/*.test.cjs",
+    "smoke": "node scripts/smoke.cjs",
+    "dist": "npm run icons && electron-builder --win nsis portable --publish never",
+    "postinstall": "node node_modules/electron/install.js",
+    "prestart": "npm run icons",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "electron": "43.8.1",
+    "electron-builder": "26.15.3",
+    "prettier": "3.9.10"
+  },
+  "build": {
+    "appId": "com.valhalla.engineering",
+    "productName": "VALHALLA",
+    "copyright": "Copyright \u00a9 2026 VALHALLA contributors",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "src/**/*",
+      "ui/**/*",
+      "package.json",
+      "LICENSE",
+      "build/icon.png"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "executableName": "VALHALLA",
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "VALHALLA",
+      "artifactName": "VALHALLA-${version}-Setup.exe"
+    },
+    "portable": {
+      "artifactName": "VALHALLA-${version}-Portable.exe"
+    },
+    "extraResources": [
+      {
+        "from": "Setup-Local-AI.cmd",
+        "to": "local-setup/Setup-Local-AI.cmd"
+      },
+      {
+        "from": "Setup-Lite-AI.cmd",
+        "to": "local-setup/Setup-Lite-AI.cmd"
+      },
+      {
+        "from": "local-ai",
+        "to": "local-setup/local-ai"
+      }
+    ]
+  }
+}
