@@ -1,0 +1,49 @@
+name: Build VALHALLA for Windows
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  windows:
+    name: Verify and package desktop app
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Check source and test physics and AI adapter
+        run: npm run check
+      - name: Generate application icons
+        run: npm run icons
+      - name: Verify desktop startup without model download
+        run: npm run smoke
+      - name: Package installer and portable app
+        run: npm run dist
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: false
+      - name: Upload Windows apps
+        uses: actions/upload-artifact@v4
+        with:
+          name: VALHALLA-Windows
+          path: |
+            release/*.exe
+            release/VALHALLA-preview.png
+          if-no-files-found: error
+      - name: Preserve startup diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: VALHALLA-diagnostics
+          path: release/VALHALLA-preview.png
+          if-no-files-found: ignore
