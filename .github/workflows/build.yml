@@ -33,7 +33,7 @@ jobs:
         env:
           CSC_IDENTITY_AUTO_DISCOVERY: false
       - name: Upload Windows apps
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: VALHALLA-Windows
           path: |
@@ -42,7 +42,7 @@ jobs:
           if-no-files-found: error
       - name: Preserve startup diagnostics
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: VALHALLA-diagnostics
           path: release/VALHALLA-preview.png
