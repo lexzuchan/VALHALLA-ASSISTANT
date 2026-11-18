@@ -22,7 +22,7 @@
   "devDependencies": {
     "electron": "43.8.1",
     "electron-builder": "26.15.3",
-    "prettier": "3.9.10"
+    "prettier": "3.10.1"
   },
   "build": {
     "appId": "com.valhalla.engineering",
